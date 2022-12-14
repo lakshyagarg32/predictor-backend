@@ -18,6 +18,7 @@ app.post("/api/test", (req, res) => {
   const gender = req.body.gender;
   const category = req.body.category;
   const domicile_state = req.body.domicile_state;
+  console.log(rank,gender,category,domicile_state);
   for (let i = 0; i < results.length; i++) {
     if (
       gender == "Gender Neutral" &&
@@ -47,6 +48,7 @@ app.post("/api/test", (req, res) => {
   ans.sort(function (a, b) {
     return a.closing_rank - b.closing_rank;
   });
+  console.log(ans);
   res.json({
     Rank: rank,
     Gender: gender,
@@ -60,5 +62,5 @@ if (port == null || port == "") {
   port = 5000;
 }
 app.listen(port, () => {
-  console.log("Server started on port 5000");
+  console.log("Server started on port",port);
 });
