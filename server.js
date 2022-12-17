@@ -27,7 +27,9 @@ app.post("/api/test", (req, res) => {
       results[i].gender == "Gender-Neutral" &&
       results[i].category == category &&
       Number(results[i].closing_rank) >= Number(rank) &&
-      (results[i].quota == "OS" || results[i].state == domicile_state)
+      (results[i].quota == "OS" ||
+        results[i].state == domicile_state ||
+        results[i].quota == "AI")
     ) {
       ans.push(results[i]);
     } else if (
@@ -35,14 +37,18 @@ app.post("/api/test", (req, res) => {
       results[i].gender != "Gender-Neutral" &&
       results[i].category == category &&
       Number(results[i].closing_rank) >= Number(rank) &&
-      (results[i].quota == "OS" || results[i].state == domicile_state)
+      (results[i].quota == "OS" ||
+        results[i].state == domicile_state ||
+        results[i].quota == "AI")
     ) {
       ans.push(results[i]);
     } else if (
       gender == "Both" &&
       results[i].category == category &&
       Number(results[i].closing_rank) >= Number(rank) &&
-      (results[i].quota == "OS" || results[i].state == domicile_state)
+      (results[i].quota == "OS" ||
+        results[i].state == domicile_state ||
+        results[i].quota == "AI")
     ) {
       ans.push(results[i]);
     }
